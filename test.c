@@ -21,10 +21,14 @@ int main(void)
     XTestFakeMotionEvent(
         display,
         -1,
-        900,
-        900,
+        0,
+        0,
         CurrentTime
     );
+    XFlush(display);
+    sleep(1);
+
+    XTestFakeButtonEvent(display,3,True, CurrentTime);
 
     XFlush(display);
 
